@@ -81,19 +81,19 @@ export default function Hero({ projects }: HeroProps) {
 
               <div className={styles.icons}>
                 <a href="#development" className={styles.iconItem}>
-                  <Code2 className={styles.icon} size={28} />
+                  <Code2 className={styles.icon} size={34} />
                   <span>Development</span>
                 </a>
                 <a href="#content" className={styles.iconItem}>
-                  <FileText className={styles.icon} size={28} />
+                  <FileText className={styles.icon} size={34} />
                   <span>Content</span>
                 </a>
                 <a href="#design" className={styles.iconItem}>
-                  <Palette className={styles.icon} size={28} />
+                  <Palette className={styles.icon} size={34} />
                   <span>Design</span>
                 </a>
                 <a href="#strategy" className={styles.iconItem}>
-                  <Lightbulb className={styles.icon} size={28} />
+                  <Lightbulb className={styles.icon} size={34} />
                   <span>Strategy</span>
                 </a>
               </div>
