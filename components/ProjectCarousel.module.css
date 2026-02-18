@@ -134,6 +134,7 @@
   font-size: 0.875rem;
   color: var(--gray-600);
   line-height: 1.6;
+  font-weight: 600;
   animation: fadeIn 0.4s ease 0.1s both;
 }
 
@@ -167,3 +168,4 @@
     max-width: 100%;
   }
 }
+

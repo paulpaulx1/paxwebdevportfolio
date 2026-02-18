@@ -119,7 +119,7 @@
 
 .icons {
   display: flex;
-  gap: 28px;
+  gap: 36px;
   margin: 16px 0;
   align-self: center;
 }
@@ -313,7 +313,7 @@
 
 /* Red dot */
 .iconItem:nth-child(3) circle:nth-of-type(3) {
- display: none !important;
+  display: none !important;
 }
 
 /* Blue dot */
@@ -326,4 +326,28 @@
 .iconItem:nth-child(3) circle:nth-of-type(1) {
   fill: #fbbf24 !important;
   stroke: #fbbf24 !important;
+}
+
+/* Sliding background fill for "Start a project" button */
+.actions>a:last-child {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.actions>a:last-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--gray-800);
+  transition: width 0.3s ease-out;
+  z-index: -1;
+}
+
+.actions>a:last-child:hover::before {
+  width: 100%;
+  transition: width 0.8s ease-out !important;
 }
