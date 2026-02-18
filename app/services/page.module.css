@@ -1,0 +1,265 @@
+.page {
+    padding-top: 80px;
+}
+
+.intro {
+    padding: var(--section-gap) 0 64px;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.pageTitle {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 24px;
+}
+
+.pageLead {
+    font-size: 1.25rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+.service {
+    padding: var(--section-gap) 0;
+    border-bottom: 1px solid var(--gray-200);
+    scroll-margin-top: 100px;
+}
+
+.serviceGrid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 80px;
+    align-items: start;
+}
+
+.serviceContent {
+    max-width: 700px;
+}
+
+.serviceNumber {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gray-400);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.serviceTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 8px;
+}
+
+.serviceSubtitle {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: block;
+}
+
+.serviceBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.serviceBody p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    line-height: 1.75;
+}
+
+.serviceBody h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-top: 24px;
+}
+
+.serviceBody ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 0;
+}
+
+.serviceBody ul li {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.serviceBody ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+.serviceBody strong {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.serviceMeta {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.metaBox {
+    background: var(--off-white);
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--gray-800);
+    padding: 24px;
+}
+
+.metaBox h4 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.metaBox p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+.metaBox ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+}
+
+.metaBox ul li {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    padding-left: 16px;
+    position: relative;
+}
+
+.metaBox ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gray-800);
+}
+
+.cta {
+    padding: var(--section-gap) 0;
+    text-align: center;
+}
+
+.cta h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.ctaButton {
+    display: inline-block;
+    border: 2px solid var(--gray-800);
+    padding: 16px 40px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.ctaButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--gray-800);
+    transition: width 0.4s ease-out;
+    z-index: -1;
+}
+
+.ctaButton:hover::before {
+    width: 100%;
+}
+
+.ctaButton:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 968px) {
+    .serviceGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .serviceMeta {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .metaBox {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page {
+        padding-top: 60px;
+    }
+
+    .serviceMeta {
+        flex-direction: column;
+    }
+
+    .metaBox {
+        min-width: auto;
+    }
+}

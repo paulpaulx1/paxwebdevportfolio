@@ -18,7 +18,7 @@ export default function Footer() {
 
         <nav className={styles.links}>
           <a href="#work">Work</a>
-          <a href="#services">Services</a>
+          <a href="/services">Services</a>
           <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </nav>

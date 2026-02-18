@@ -26,7 +26,7 @@ export default function Nav() {
           <Link href="/#work" className={pathname === '/work' ? styles.active : ''}>
             Work
           </Link>
-          <Link href="/#services">Services</Link>
+          <Link href="/services">Services</Link>
           <Link href="/#pricing">Pricing</Link>
           <Link href="/#contact" className={styles.cta}>
             Get in touch
