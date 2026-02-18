@@ -54,8 +54,8 @@ const fallbackProjects: Project[] = [
     category: 'full-build',
     excerpt: 'Church website with event calendar and content management.',
     technologies: ['Next.js', 'Sanity CMS'],
-    liveUrl: 'https://www.smgcpafirm.com/', // placeholder until you give me the real URL
-    coverImage: '/screenshots/hotr-splash.png',
+    liveUrl: 'https://www.houseoftheredeemer.org/', 
+    coverImage: '/screenshots/hotr-splash2.png',
     featured: true,
   },
 ]
