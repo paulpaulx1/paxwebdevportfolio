@@ -3,6 +3,7 @@
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -10,13 +11,23 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes slideInLeft {
@@ -24,6 +35,7 @@
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -35,6 +47,7 @@
     opacity: 0;
     transform: translateY(2000px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -105,7 +118,7 @@
 
 .icons {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   margin: 16px 0;
   align-self: center;
 }
@@ -117,12 +130,51 @@
   gap: 8px;
   opacity: 0;
   animation: slideInLeft 0.6s ease-out both;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  padding: 16px;
+  margin: -16px;
+  transition: transform 0.2s;
+  width: 100px;
 }
 
-.iconItem:nth-child(1) { animation-delay: 0.7s; }
-.iconItem:nth-child(2) { animation-delay: 0.8s; }
-.iconItem:nth-child(3) { animation-delay: 0.9s; }
-.iconItem:nth-child(4) { animation-delay: 1s; }
+/* Animated border on hover */
+.iconItem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--gray-800);
+  border-radius: 4px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.iconItem:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.iconItem:hover {
+  transform: translateY(-2px);
+}
+
+.iconItem:nth-child(1) {
+  animation-delay: 0.7s;
+}
+
+.iconItem:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.iconItem:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.iconItem:nth-child(4) {
+  animation-delay: 1s;
+}
 
 .iconItem span {
   font-family: var(--font-mono);
@@ -130,15 +182,36 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--gray-600);
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+.iconItem:hover span {
+  color: var(--black);
 }
 
 .icon {
   color: var(--black);
   animation: spin 8s linear infinite;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
 }
 
-.icon:hover {
-  animation-play-state: paused;
+.iconItem:hover .icon {
+  animation: spin 2s linear infinite;
+}
+
+/* Focus state for accessibility */
+.iconItem:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 4px;
+}
+
+.iconItem:focus::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .actions {
@@ -148,11 +221,11 @@
   align-items: flex-start;
 }
 
-.actions > a:first-child {
+.actions>a:first-child {
   animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
-.actions > a:last-child {
+.actions>a:last-child {
   animation: fadeInUp 0.8s ease-out 1.1s both;
   border: 2px solid var(--gray-800);
   padding: 14px 28px;
@@ -161,13 +234,13 @@
   transition: all 0.2s;
 }
 
-.actions > a:last-child:hover {
+.actions>a:last-child:hover {
   background: var(--gray-800);
   color: var(--white);
   transform: translateY(-1px);
 }
 
-.actions > a {
+.actions>a {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   letter-spacing: 0.06em;
@@ -180,11 +253,11 @@
   width: fit-content;
 }
 
-.actions > a:first-child {
+.actions>a:first-child {
   font-weight: 500;
 }
 
-.actions > a:hover {
+.actions>a:hover {
   color: var(--gray-400);
 }
 
@@ -213,7 +286,7 @@
   }
 
   .icons {
-    gap: 16px;
+    gap: 28px;
     padding-left: 0;
   }
 

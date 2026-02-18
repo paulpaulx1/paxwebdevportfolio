@@ -12,18 +12,6 @@ interface HeroProps {
 const fallbackProjects: Project[] = [
   {
     _id: '1',
-    title: 'Whale Creek',
-    client: 'Whale Creek Construction',
-    slug: { current: 'whale-creek' },
-    category: 'full-build',
-    excerpt: 'Indianapolis contractor showcasing custom decks and outdoor living.',
-    technologies: ['Next.js', 'Sanity CMS', 'SEO'],
-    liveUrl: 'https://whale-creek.vercel.app/',
-    coverImage: '/screenshots/whale-creek-splash.png',
-    featured: true,
-  },
-  {
-    _id: '2',
     title: 'SMG CPA',
     client: 'SMG CPA',
     slug: { current: 'smg-cpa' },
@@ -35,7 +23,7 @@ const fallbackProjects: Project[] = [
     featured: true,
   },
   {
-    _id: '3',
+    _id: '2',
     title: 'Andrea Callard',
     client: 'Andrea Callard',
     slug: { current: 'andrea-callard' },
@@ -47,6 +35,18 @@ const fallbackProjects: Project[] = [
     featured: true,
   },
   {
+    _id: '3',
+    title: 'Whale Creek',
+    client: 'Whale Creek Construction',
+    slug: { current: 'whale-creek' },
+    category: 'full-build',
+    excerpt: 'Indianapolis contractor showcasing custom decks and outdoor living.',
+    technologies: ['Next.js', 'Sanity CMS', 'SEO'],
+    liveUrl: 'https://whale-creek.vercel.app/',
+    coverImage: '/screenshots/whale-creek-splash.png',
+    featured: true,
+  },
+  {
     _id: '4',
     title: 'House of the Redeemer',
     client: 'House of the Redeemer',
@@ -54,8 +54,8 @@ const fallbackProjects: Project[] = [
     category: 'full-build',
     excerpt: 'Church website with event calendar and content management.',
     technologies: ['Next.js', 'Sanity CMS'],
-    liveUrl: 'https://www.houseoftheredeemer.org/', 
-    coverImage: '/screenshots/hotr-splash2.png',
+    liveUrl: 'https://www.smgcpafirm.com/', // placeholder until you give me the real URL
+    coverImage: '/screenshots/hotr-splash.png',
     featured: true,
   },
 ]
@@ -80,22 +80,22 @@ export default function Hero({ projects }: HeroProps) {
 
 
               <div className={styles.icons}>
-                <div className={styles.iconItem}>
+                <a href="#development" className={styles.iconItem}>
                   <Code2 className={styles.icon} size={28} />
                   <span>Development</span>
-                </div>
-                <div className={styles.iconItem}>
+                </a>
+                <a href="#content" className={styles.iconItem}>
                   <FileText className={styles.icon} size={28} />
                   <span>Content</span>
-                </div>
-                <div className={styles.iconItem}>
+                </a>
+                <a href="#design" className={styles.iconItem}>
                   <Palette className={styles.icon} size={28} />
                   <span>Design</span>
-                </div>
-                <div className={styles.iconItem}>
+                </a>
+                <a href="#strategy" className={styles.iconItem}>
                   <Lightbulb className={styles.icon} size={28} />
                   <span>Strategy</span>
-                </div>
+                </a>
               </div>
 
               <a href="#contact">Start a project</a>
