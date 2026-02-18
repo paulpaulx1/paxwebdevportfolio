@@ -12,6 +12,18 @@ interface HeroProps {
 const fallbackProjects: Project[] = [
   {
     _id: '1',
+    title: 'Whale Creek',
+    client: 'Whale Creek Construction',
+    slug: { current: 'whale-creek' },
+    category: 'full-build',
+    excerpt: 'Indianapolis contractor showcasing custom decks and outdoor living.',
+    technologies: ['Next.js', 'Sanity CMS', 'SEO'],
+    liveUrl: 'https://whale-creek.vercel.app/',
+    coverImage: '/screenshots/whale-creek-splash.png',
+    featured: true,
+  },
+  {
+    _id: '2',
     title: 'SMG CPA',
     client: 'SMG CPA',
     slug: { current: 'smg-cpa' },
@@ -23,7 +35,7 @@ const fallbackProjects: Project[] = [
     featured: true,
   },
   {
-    _id: '2',
+    _id: '3',
     title: 'Andrea Callard',
     client: 'Andrea Callard',
     slug: { current: 'andrea-callard' },
@@ -32,18 +44,6 @@ const fallbackProjects: Project[] = [
     technologies: ['Next.js', 'Sanity CMS'],
     liveUrl: 'https://andreacallard.com/',
     coverImage: '/screenshots/andrea-splash.png',
-    featured: true,
-  },
-  {
-    _id: '3',
-    title: 'Whale Creek',
-    client: 'Whale Creek Construction',
-    slug: { current: 'whale-creek' },
-    category: 'full-build',
-    excerpt: 'Indianapolis contractor showcasing custom decks and outdoor living.',
-    technologies: ['Next.js', 'Sanity CMS', 'SEO'],
-    liveUrl: 'https://whale-creek.vercel.app/',
-    coverImage: '/screenshots/whale-creek-splash.png',
     featured: true,
   },
   {
