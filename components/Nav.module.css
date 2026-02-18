@@ -1,0 +1,127 @@
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 24px 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: padding 0.3s ease;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.nav.scrolled {
+  padding: 16px 0;
+}
+
+.inner {
+  width: var(--container);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: -0.09em;
+  color: var(--black);
+}
+
+.dot {
+  color: var(--gray-400);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.links a {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.15s;
+}
+
+/* Underline animation - left to right on hover */
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--black);
+  transition: width 0.3s ease;
+}
+
+.links a:hover::after,
+.links a.active::after {
+  width: 100%;
+}
+
+.links a:hover,
+.links a.active {
+  color: var(--black);
+}
+
+/* Focus state - box around text */
+.links a:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 5px;
+  color: var(--black);
+}
+
+.links a:focus::after {
+  width: 100%;
+}
+
+.cta {
+  background: #646464 !important;
+  color: var(--white) !important;
+  padding: 10px 20px !important;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s !important;
+}
+
+.cta::after {
+  display: none;
+}
+
+.cta:hover {
+  background: var(--black) !important;
+  transform: translateY(-1px);
+}
+
+.cta:focus {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .links a:not(.cta) {
+    display: none;
+  }
+}
