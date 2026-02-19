@@ -1,29 +1,151 @@
+@keyframes spin1 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.65;
+    }
+}
+
+@keyframes paletteDropIn {
+    from {
+        transform: translateX(300px) translateY(-140px);
+    }
+
+    70% {
+        transform: translateX(300px) translateY(10px);
+    }
+
+    to {
+        transform: translateX(300px) translateY(0);
+    }
+}
+
 .page {
     padding-top: 80px;
 }
 
-.intro {
-    padding: var(--section-gap) 0 64px;
-    border-bottom: 1px solid var(--gray-200);
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 59vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--white);
 }
 
-.pageTitle {
+.shapes {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12%;
+    z-index: 1;
+}
+
+.paletteIcon {
+    color: grey;
+    opacity: 0;
+    stroke-width: 1.5;
+    animation:
+        spin1 22s linear infinite,
+        fadeIn 0.8s ease-out forwards;
+    /* ✅ synced with hero */
+}
+
+.paletteNudge {
+    transform: translateX(300px);
+    animation: paletteDropIn 0.8s ease-out both;
+    /* ✅ same as heroOverlay */
+
+}
+
+.paletteIcon circle:nth-of-type(1) {
+    fill: #fbbf24 !important;
+    stroke: #fbbf24 !important;
+}
+
+.paletteIcon circle:nth-of-type(2) {
+    fill: #4bfb24 !important;
+    stroke: #4bfb24 !important;
+}
+
+.paletteIcon circle:nth-of-type(3) {
+    fill: #ef4444 !important;
+    stroke: #ef4444 !important;
+}
+
+.paletteIcon circle:nth-of-type(4) {
+    fill: #3b82f6 !important;
+    stroke: #3b82f6 !important;
+}
+
+.paletteIcon circle:nth-of-type(5) {
+    fill: #fbbf24 !important;
+    stroke: #fbbf24 !important;
+}
+
+.heroOverlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: calc(var(--section-gap) * 1.5) 0 calc(var(--section-gap) * 2) 0;
+    clip-path: ellipse(100% 100% at 50% 0%);
+    background: linear-gradient(to right,
+            rgba(51, 50, 49, 0.78) 0%,
+            rgba(51, 50, 49, 0.62) 40%,
+            rgba(51, 50, 49, 0.38) 75%,
+            rgba(51, 50, 49, 0.22) 100%);
+    animation: slideDown 0.8s ease-out both;
+    align-self: stretch;
+    /* <-- KEY: fill the hero height */
+    display: flex;
+    /* <-- so we can vertically center the container inside */
+    align-items: center;
+    /* <-- keep your content centered */
+}
+
+.heroTitle {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
-    color: var(--black);
-    margin-bottom: 24px;
+    color: var(--white);
+    margin-bottom: 32px;
 }
 
-.pageLead {
-    font-size: 1.25rem;
-    color: var(--gray-600);
-    line-height: 1.6;
-    max-width: 700px;
+.heroLead {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    max-width: 600px;
 }
 
+/* Services Sections */
 .service {
     padding: var(--section-gap) 0;
     border-bottom: 1px solid var(--gray-200);
@@ -119,6 +241,26 @@
     font-weight: 600;
 }
 
+/* Design Visual Placeholder */
+.designVisual {
+    min-height: 300px;
+    background: var(--off-white);
+    border: 2px dashed var(--gray-300);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.placeholder {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--gray-400);
+    text-align: center;
+}
+
+/* Sidebar Meta */
 .serviceMeta {
     position: sticky;
     top: 120px;
@@ -172,6 +314,7 @@
     color: var(--gray-800);
 }
 
+/* CTA */
 .cta {
     padding: var(--section-gap) 0;
     text-align: center;
@@ -233,6 +376,7 @@
     transform: translateY(-2px);
 }
 
+/* Responsive */
 @media (max-width: 968px) {
     .serviceGrid {
         grid-template-columns: 1fr;
@@ -248,6 +392,10 @@
     .metaBox {
         min-width: 200px;
     }
+
+    .heroTitle {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
 }
 
 @media (max-width: 768px) {
@@ -261,5 +409,19 @@
 
     .metaBox {
         min-width: auto;
+    }
+
+    .hero {
+        min-height: 50vh;
+    }
+
+    .heroOverlay {
+        padding: calc(var(--section-gap) * 0.8) 0 calc(var(--section-gap) * 1.5) 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .shape {
+        animation: none;
     }
 }
